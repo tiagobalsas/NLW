@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
+import { auth, firebase } from '../services/firebase';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 
@@ -12,7 +14,14 @@ import '../styles/auth.scss';
 export function Home() {
   const history = useNavigate();
 
-  function navigateToNewRoom() {
+  function handleCreateRoom() {
+    const provaider = new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provaider)
+      .then(result => {
+        console.log(result);
+        
+      })
     history('/rooms/new');
   }
 
@@ -31,7 +40,7 @@ export function Home() {
         <div className='main-content'>
           <img src={logoImg} alt='Letmesask' />
 
-          <button onClick={navigateToNewRoom} className='create-room'>
+          <button onClick={handleCreateRoom} className='create-room'>
             <img src={googleIconImg} alt='Logo do Google' />
             Crie sua sala com o Google
           </button>
