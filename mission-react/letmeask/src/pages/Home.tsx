@@ -17,14 +17,14 @@ export function Home() {
       </aside>
 
       <main>
-        <div>
+        <div className='main-content'>
           <img src={logoImg} alt='Letmesask' />
 
           <button>
             <img src={googleIconImg} alt='Logo do Google' />
             Crie sua sala com o Google
           </button>
-          <div>Ou entre em uma sala</div>
+          <div className='separator'>Ou entre em uma sala</div>
           <form action=''>
             <input type='text' placeholder='Digite o código da sala' />
             <button type='submit'>Entrar na sala</button>
