@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
-import { auth, firebase } from '../services/firebase';
+import { AuthContext } from '../App';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -14,15 +15,13 @@ import '../styles/auth.scss';
 export function Home() {
   const history = useNavigate();
 
-  function handleCreateRoom() {
-    const provaider = new firebase.auth.GoogleAuthProvider();
+  const { user, signInWithGoogle } = useContext(AuthContext);
 
-    auth.signInWithPopup(provaider)
-      .then(result => {
-        console.log(result);
-        
-        history('/rooms/new');
-      })
+  function handleCreateRoom() {
+    if (!user) {
+      signInWithGoogle();
+    }
+    history('/rooms/new');
   }
 
   return (
