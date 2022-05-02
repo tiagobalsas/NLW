@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 
+import './styles/global.scss';
+
 import './services/firebase';
 
 const root = ReactDOM.createRoot(
