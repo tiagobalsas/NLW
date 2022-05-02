@@ -13,7 +13,7 @@ type User = {
 
 type AuthContextTypes = {
   user: User | undefined;
-  signInWithGoogle: () => void;
+  signInWithGoogle: () => Promise<void>;
 };
 
 export const AuthContext = createContext({} as AuthContextTypes);
@@ -21,24 +21,24 @@ export const AuthContext = createContext({} as AuthContextTypes);
 function App() {
   const [user, setUser] = useState<User>();
 
-  function signInWithGoogle() {
+  async function signInWithGoogle() {
     const provaider = new firebase.auth.GoogleAuthProvider();
 
-    auth.signInWithPopup(provaider).then((result) => {
-      if (result.user) {
-        const { displayName, photoURL, uid } = result.user;
+    const result = await auth.signInWithPopup(provaider);
 
-        if (!displayName || !photoURL) {
-          throw new Error('Missing information from Google Account.');
-        }
+    if (result.user) {
+      const { displayName, photoURL, uid } = result.user;
 
-        setUser({
-          id: uid,
-          name: displayName,
-          avatar: photoURL,
-        });
+      if (!displayName || !photoURL) {
+        throw new Error('Missing information from Google Account.');
       }
-    });
+
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL,
+      });
+    }
   }
   return (
     <BrowserRouter>
