@@ -21,8 +21,8 @@ export function Home() {
       .then(result => {
         console.log(result);
         
+        history('/rooms/new');
       })
-    history('/rooms/new');
   }
 
   return (
