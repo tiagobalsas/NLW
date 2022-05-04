@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import logoImg from '../assets/images/logo.svg';
@@ -13,12 +13,60 @@ type RoomParams = {
   id: string;
 };
 
+type FirebaseQuestions = Record<
+  string,
+  {
+    author: {
+      name: string;
+      avatar: string;
+    };
+    content: string;
+    isHighlighted: boolean;
+    isAnswered: boolean;
+  }
+>;
+
+type QuestionsType = {
+  id: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  content: string;
+  isHighlighted: boolean;
+  isAnswered: boolean;
+};
+
 export function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
   const { user } = useAuth();
   const [newQuestion, setNewQuestion] = useState('');
+  const [questions, setQuestions] = useState<QuestionsType[]>([]);
+  const [title, setTitle] = useState('');
+
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}`);
+
+    roomRef.on('value', (room) => {
+      const databaseRoom = room.val();
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+
+      const parseQuestions = Object.entries(firebaseQuestions);
+      const result = parseQuestions.map(([key, value]) => {
+        return {
+          id: key,
+          content: value.content,
+          author: value.author,
+          isHighlighted: value.isHighlighted,
+          isAnswered: value.isAnswered,
+        };
+      });
+      setTitle(databaseRoom.title);
+      setQuestions(result);
+    });
+  }, [roomId]);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -58,8 +106,8 @@ export function Room() {
 
       <main>
         <div className='room-title'>
-          <h1>Sala React</h1>
-          <span>4 perguntas</span>
+          <h1>Sala {title}</h1>
+          {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
         </div>
 
         <form onSubmit={handleSendQuestion}>
