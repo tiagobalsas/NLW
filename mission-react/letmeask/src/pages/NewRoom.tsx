@@ -49,7 +49,7 @@ export function NewRoom() {
           <form onSubmit={handleCreateRoom}>
             <input
               type='text'
-              placeholder='Digite o código da sala'
+              placeholder='Dê um Título a sala'
               onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
