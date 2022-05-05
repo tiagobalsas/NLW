@@ -49,6 +49,15 @@ export function Room() {
     setNewQuestion('');
   }
 
+  async function handleLikeQuestion(questionId: string) {
+    const newLike = await database.ref(
+      `rooms/${roomId}/questions/${questionId}/likes`
+    );
+    newLike.push({
+      author: user?.id,
+    });
+  }
+
   return (
     <div id='page-room'>
       <header>
@@ -100,6 +109,7 @@ export function Room() {
                   className='like-button'
                   type='button'
                   aria-label='Marcar como gostei'
+                  onClick={() => handleLikeQuestion(question.id)}
                 >
                   <span>10</span>
                   <svg
