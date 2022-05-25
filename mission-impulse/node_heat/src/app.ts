@@ -9,4 +9,10 @@ app.get('/github', (_req, res) => {
   );
 });
 
+app.get('/signin/callback', (req, res) => {
+  const { code } = req.query;
+
+  return res.json(code);
+});
+
 app.listen(4000, () => console.log('🚀 Server is running on PORT 4000'));
