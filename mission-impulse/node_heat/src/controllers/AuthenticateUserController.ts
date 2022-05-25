@@ -6,7 +6,7 @@ class AuthenticateUserController {
     const { code } = req.body;
 
     const service = new AuthenticateUserService();
-    const result = service.execute(code);
+    const result = await service.execute(code);
 
     return res.json(result);
   }
