@@ -6,7 +6,7 @@ class AuthenticateUserService {
     const response = await axios.post(url, null, {
       params: {
         client_id: process.env.GITHUB_CLIENT_ID,
-        client_key: process.env.GITHUB_KEY,
+        client_secret: process.env.GITHUB_KEY,
         code,
       },
       headers: {
