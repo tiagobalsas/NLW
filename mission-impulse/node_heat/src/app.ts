@@ -37,4 +37,4 @@ app.get('/signin/callback', (req, res) => {
   return res.json(code);
 });
 
-serverHttp.listen(4000, () => console.log('🚀 Server is running on PORT 4000'));
+export { serverHttp, io };
