@@ -10,3 +10,11 @@
     margin: 32px 0;
   }
 }
+.messageList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  flex: 1;
+}
