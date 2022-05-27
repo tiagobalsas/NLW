@@ -17,4 +17,17 @@
   justify-content: center;
   gap: 40px;
   flex: 1;
+
+  .message {
+    max-width: 440px;
+
+    &:nth-child(2) {
+      margin-left: 80px;
+    }
+
+    .messageContent {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
 }
