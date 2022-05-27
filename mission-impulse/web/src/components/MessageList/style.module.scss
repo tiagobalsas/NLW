@@ -29,5 +29,23 @@
       font-size: 20px;
       line-height: 28px;
     }
+
+    .messageUser {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+
+      .userImage {
+        padding: 2px;
+        background: linear-gradient(100deg, #ff008e 0%, #ffcd1e 100%);
+        border-radius: 50%;
+        line-height: 0;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
