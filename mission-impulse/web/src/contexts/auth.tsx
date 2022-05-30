@@ -42,8 +42,20 @@ export function AuthProvider(props: AuthProviderTypes) {
     const { token, user } = response.data;
     localStorage.setItem('@dowhile:token', token);
 
-    setUser(user)
+    setUser(user);
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@dowhile:token');
+
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
+
+      api.get<UserTypes>('profile').then((response) => {
+        setUser(response.data);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     const url = window.location.href;
