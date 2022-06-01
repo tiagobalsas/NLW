@@ -27,6 +27,14 @@ h1 {
 }
 
 :root {
+  --hue: 159;
+  --base-color: hsl(var(var(--hue) 36% 57%));
+  --base-color-seconde: hsl(var(var(--hue) 65%, 88%));
+  --base-color-alt: hsl(var(var(--hue) 57%, 53%));
+  --title-color: hsl(var(var(--hue) 41%, 10%));
+  --title-color: hsl(0 0%, 46%);
+  --title-color-light: hsl(0 0%, 98%);
+  --body-color-: hsl(0 0%, 98%);
 }
 
 #header {
