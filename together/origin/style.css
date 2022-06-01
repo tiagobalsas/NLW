@@ -9,3 +9,34 @@
   margin-left: 1.5rem;
   margin-left: 1.5rem;
 }
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  font: 400 1rem 'DM Sans', sans-serif;
+}
+
+h1 {
+  font: 700 1.875rem 'Poppins', sans-serif;
+}
+
+:root {
+}
+
+#header {
+  height: 4.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+}
