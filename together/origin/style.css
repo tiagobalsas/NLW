@@ -76,6 +76,11 @@ nav {
   margin: 0;
 }
 
+#home .image img{
+  position: relative;
+  right: 2.93rem;
+}
+
 #home .text {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
