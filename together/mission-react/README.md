@@ -20,8 +20,8 @@ Clone o projeto e acesse a pasta do mesmo.
 ```bash
 $ git clone -n git@github.com:tiagobalsas/NLW.git
 $ cd NLW
-$ git checkout HEAD mission-react
-$ cd letmeask
+$ git checkout HEAD together/mission-react
+$ cd mission-react/letmeask
 ```
 
 Para iniciá-lo, siga os passos abaixo:
