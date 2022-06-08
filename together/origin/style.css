@@ -96,7 +96,21 @@ nav {
   right: 2.93rem;
 }
 
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
 #home .text {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
 }
