@@ -16,12 +16,12 @@ img {
 :root {
   --hue: 159;
   --base-color: hsl(var(--hue) 36% 57%);
-  --base-color-seconde: hsl(var(--hue) 65%, 88%);
-  --base-color-alt: hsl(var(--hue) 57%, 53%);
-  --title-color: hsl(var(--hue) 41%, 10%);
-  --text-color: hsl(0 0%, 46%);
-  --text-color-light: hsl(0 0%, 98%);
-  --body-color-: hsl(0 0%, 98%);
+  --base-color-seconde: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color-: hsl(0 0% 98%);
 }
 
 body {
@@ -50,7 +50,7 @@ nav {
 
 .logo {
   font: 700 1.31rem 'Poppins', sans-serif;
-  color: var(--text-color);
+  color: var(--title-color);
 }
 
 .logo span {
@@ -76,7 +76,22 @@ nav {
   margin: 0;
 }
 
-#home .image img{
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-seconde);
+  position: absolute;
+  top: -16%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
   position: relative;
   right: 2.93rem;
 }
