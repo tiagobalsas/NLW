@@ -14,6 +14,8 @@ img {
 }
 
 :root {
+  --header-height: 4.5rem;
+
   --hue: 159;
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-seconde: hsl(var(--hue) 65% 88%);
@@ -21,7 +23,7 @@ img {
   --title-color: hsl(var(--hue) 41% 10%);
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
-  --body-color-: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
 }
 
 body {
@@ -62,28 +64,7 @@ h1 {
   );
 }
 
-#header {
-  border-bottom: 1px solid #e4e4e4;
-}
-
-nav {
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
-  color: var(--title-color);
-}
-
-.logo span {
-  color: var(--base-color);
-}
-
 .container {
-  width: 90%;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -95,6 +76,44 @@ nav {
 
 .section {
   padding: 5rem 0;
+}
+
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  display: flex;
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+main {
+  margin-top: var(--header-height);
+}
+
+#home {
+  overflow: hidden;
 }
 
 #home .container {
