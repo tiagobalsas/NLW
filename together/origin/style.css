@@ -53,6 +53,15 @@ h1 {
   background: var(--base-color-alt);
 }
 
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
 #header {
   border-bottom: 1px solid #e4e4e4;
 }
