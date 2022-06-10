@@ -465,6 +465,12 @@ footer i {
 
 footer .social a {
   margin-right: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px)
 }
 
 .back-to-top {
